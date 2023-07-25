@@ -21,7 +21,7 @@ namespace MySample
             {
                 //ModbusTcpMasterReadInputs();
                 //SimplePerfTest();
-                ModbusSerialRtuMasterWriteRegisters();
+                //ModbusSerialRtuMasterWriteRegisters();
                 //ModbusSerialAsciiMasterReadRegisters();
                 //ModbusTcpMasterReadInputs();
                 //StartModbusAsciiSlave();
@@ -44,7 +44,7 @@ namespace MySample
         /// </summary>
         public static void ModbusSerialRtuMasterWriteRegisters()
         {
-            using (SerialPort port = new SerialPort("COM1"))
+            using (SerialPort port = new SerialPort("COM7"))
             {
                 // configure serial port
                 port.BaudRate = 9600;
@@ -58,7 +58,7 @@ namespace MySample
                 IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(adapter);
 
                 byte slaveId = 1;
-                ushort startAddress = 100;
+                ushort startAddress = 0;
                 ushort[] registers = new ushort[] { 1, 2, 3 };
 
                 // write three registers
@@ -71,7 +71,7 @@ namespace MySample
         /// </summary>
         public static void ModbusSerialAsciiMasterReadRegisters()
         {
-            using (SerialPort port = new SerialPort("COM1"))
+            using (SerialPort port = new SerialPort("COM7"))
             {
                 // configure serial port
                 port.BaudRate = 9600;
@@ -304,7 +304,7 @@ namespace MySample
         /// </summary>
         public static void ModbusSerialAsciiMasterReadRegistersFromModbusSlave()
         {
-            using (SerialPort masterPort = new SerialPort("COM1"))
+            using (SerialPort masterPort = new SerialPort("COM7"))
             using (SerialPort slavePort = new SerialPort("COM2"))
             {
                 // configure serial ports
@@ -351,7 +351,7 @@ namespace MySample
         /// </summary>
         public static void ReadWrite32BitValue()
         {
-            using (SerialPort port = new SerialPort("COM1"))
+            using (SerialPort port = new SerialPort("COM7"))
             {
                 // configure serial port
                 port.BaudRate = 9600;

@@ -73,6 +73,7 @@
     <Compile Include="IO\StreamResourceUtility.cs" />
     <Compile Include="IO\TcpClientAdapter.cs" />
     <Compile Include="IO\UdpClientAdapter.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Message\AbstractModbusMessage.cs" />
     <Compile Include="Message\AbstractModbusMessageWithData.cs" />
     <Compile Include="Message\DiagnosticsRequestResponse.cs" />

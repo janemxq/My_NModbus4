@@ -2,7 +2,7 @@
 {
     using System.Diagnostics;
     using System.IO;
-
+    using Common;
     using Message;
 
     /// <summary>
@@ -39,6 +39,7 @@
 
             byte[] frame = BuildMessageFrame(message);
             Debug.WriteLine($"TX: {string.Join(", ", frame)}");
+            SysLog.setSystemLog($"TX: {SysLog.ByteToHex(frame)}");
             StreamResource.Write(frame, 0, frame.Length);
         }
 
@@ -56,7 +57,7 @@
 
             return response;
         }
-
+        
         internal abstract bool ChecksumsMatch(IModbusMessage message, byte[] messageFrame);
 
         internal override void OnValidateResponse(IModbusMessage request, IModbusMessage response)
